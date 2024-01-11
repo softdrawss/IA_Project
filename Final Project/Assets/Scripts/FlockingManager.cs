@@ -6,7 +6,7 @@ public class FlockingManager : MonoBehaviour
 {
     Flocking flock;
     public GameObject fishprefab;
-    public int numFish = 50;
+    public int numFish;
     public GameObject[] allFish;
     public Vector3 swimLimits;
     public bool bounded = true;
@@ -15,8 +15,8 @@ public class FlockingManager : MonoBehaviour
     public Bounds bound;
 
     [Header("Fish Settings")]
-    public float minSpeed = 5;
-    public float maxSpeed = 10;
+    public float minSpeed;
+    public float maxSpeed;
     public float neighbourDistance;
     public float rotationSpeed;
 
@@ -24,7 +24,7 @@ public class FlockingManager : MonoBehaviour
     void Start()
     {
         allFish = new GameObject[numFish];
-        bound = new Bounds(fishprefab.transform.position, swimLimits);
+        bound = new Bounds(transform.position, swimLimits);
 
         for (int i = 0; i < numFish; ++i)
         {
@@ -37,6 +37,4 @@ public class FlockingManager : MonoBehaviour
             allFish[i].GetComponent<Flocking>().myManager = this;
         }
     }
-
-
 }

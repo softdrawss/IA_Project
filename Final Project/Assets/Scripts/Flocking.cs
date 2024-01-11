@@ -11,9 +11,6 @@ public class Flocking : MonoBehaviour
     float speed;
     Vector3 direction;
 
-    //wander
-    //public float radius = 25;
-    //public float offset = 10;
 
     void Start()
     {
@@ -65,7 +62,7 @@ public class Flocking : MonoBehaviour
                 if (distance <= myManager.neighbourDistance)
                 {
                     align += go.GetComponent<Flocking>().direction;
-                    num++;
+                    ++num;
                 }
             }
         }
@@ -74,6 +71,7 @@ public class Flocking : MonoBehaviour
             align /= num;
             speed = Mathf.Clamp(align.magnitude, myManager.minSpeed, myManager.maxSpeed);
         }
+
         return align;
     }
 
@@ -96,117 +94,26 @@ public class Flocking : MonoBehaviour
         return separation;
     }
 
-    //Vector3 wander()
-    //{
-    //    Vector3 localTarget = UnityEngine.Random.insideUnitCircle * radius;
-    //    localTarget += new Vector3(offset, offset, offset);
-    //    Vector3 worldTarget = transform.TransformPoint(localTarget);
-    //    return worldTarget;
-
-    //}
 
     IEnumerator NewHeading()
     {
-        //while (true)
-        //{
-        //    foreach (GameObject go in myManager.allFish)
-        //    {
-        //        intervalTime = Random.Range(0.0f, 1.0f);
-
-        //        direction = wander();
-        //        //if (myManager.bounded == true && myManager.bound.Contains(transform.position) == true)
-        //        //{
-        //        //    direction = leaderdir;
-        //        //}
-        //        //else
-        //        //{
-        //        //    direction = (myManager.bound.center - transform.position).normalized;
-        //        //}
-        //    }
-        //    yield return new WaitForSeconds(intervalTime);
-        //}
-
-
-        //if (myManager.followLeader == true)
-        //{
-        //    while (true)
-        //    {
-        //        Vector3 leaderdir = (Cohesion() + Align() + Separation()).normalized * speed;
-        //        foreach (GameObject go in myManager.allFish)
-        //        {
-        //            intervalTime = Random.Range(0.0f, 1.0f);
-        //            if (myManager.bounded == true && myManager.bound.Contains(transform.position) == true)
-        //            {
-        //                direction = leaderdir;
-        //            }
-        //            else
-        //            {
-        //                direction = (myManager.bound.center - transform.position).normalized;
-        //            }
-        //        }
-        //        yield return new WaitForSeconds(intervalTime);
-        //    }
-        //}
-        //else
-        //{
-        foreach (GameObject go in myManager.allFish)
+        speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
+        direction = transform.forward;
+        intervalTime = Random.Range(0.5f, 1.0f); // Calculate a new interval for each GameObject
+        yield return new WaitForSeconds(intervalTime);
+        while (true)
         {
 
-            intervalTime = Random.Range(0.0f, 1.0f); // Calculate a new interval for each GameObject
-            while (true)
+            if (myManager.bounded == true && myManager.bound.Contains(transform.position) == true)
             {
-
-                if (myManager.bounded == true && myManager.bound.Contains(transform.position) == true)
-                {
-                    direction = (Cohesion() + Align() + Separation()).normalized * speed;
-                }
-                else
-                {
-                    direction = (myManager.bound.center - transform.position).normalized;
-                }
-                yield return new WaitForSeconds(intervalTime);
+                direction = (Cohesion() + Align() + Separation()).normalized * speed;
             }
+            else
+            {
+                direction = (myManager.bound.center - transform.position).normalized;
+            }
+            yield return new WaitForSeconds(intervalTime);
         }
-        //}
     }
-
-    
 }
 
-//public class Wander : MonoBehaviour
-//{
-//    public float radius = 8;
-//    public float offset = 10;
-//    public NavMeshAgent agent;
-//    public int intervalTime = 1;
-//    Vector3 target;
-
-//    void Start()
-//    {
-//        StartCoroutine(NewHeading());
-//    }
-//    // Update is called once per frame
-//    void Update()
-//    {
-//        agent.destination = target;
-//    }
-
-//    Vector3 wander()
-//    {
-//        Vector3 localTarget = UnityEngine.Random.insideUnitCircle * radius;
-//        localTarget += new Vector3(0, 0, offset);
-//        Vector3 worldTarget = transform.TransformPoint(localTarget);
-//        worldTarget.y = 0f;
-//        return worldTarget;
-
-//    }
-
-//    IEnumerator NewHeading()
-//    {
-//        while (true)
-//        {
-//            target = wander();
-//            yield return new WaitForSeconds(intervalTime);
-//        }
-//    }
-//}
