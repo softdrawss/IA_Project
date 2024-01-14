@@ -122,7 +122,7 @@ MonoBehaviour:
     cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <SequenceNode id=\"5\" />\r\n          <RepeatDecorator id=\"4\" />\r\n       
     </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <SubbehaviorNode id=\"10\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"431 834.5\"
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"431 834.5\"
     name=\"ToSteal\" description=\"\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SubbehaviorNode id=\"10\" />\r\n         
     <SequenceNode id=\"11\" />\r\n        </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n   
