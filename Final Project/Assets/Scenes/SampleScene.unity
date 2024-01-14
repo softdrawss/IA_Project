@@ -308,6 +308,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1977063081108573816, guid: a77fe4f975bb5534bb7e7ea5075f48b7, type: 3}
+      propertyPath: numFish
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1988149595546083026, guid: a77fe4f975bb5534bb7e7ea5075f48b7, type: 3}
       propertyPath: m_Name
       value: Rusc
