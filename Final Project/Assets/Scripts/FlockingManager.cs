@@ -29,7 +29,7 @@ public class FlockingManager : MonoBehaviour
         for (int i = 0; i < numFish; ++i)
         {
 
-            Vector3 pos = this.transform.position + Random.insideUnitSphere * 10;
+            Vector3 pos = this.transform.position + Random.insideUnitSphere;
             Vector3 randomize = Random.insideUnitSphere;
 
             allFish[i] = (GameObject)Instantiate(fishprefab, pos,
