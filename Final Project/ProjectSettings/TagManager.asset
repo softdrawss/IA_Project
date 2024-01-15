@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hide
+  - Target
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Target
   - Water
   - UI
   - 

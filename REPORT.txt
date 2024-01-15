@@ -1,3 +1,9 @@
 Techniques implemented in this project:
 
-- 
+- Flocking: Bees and Rusc
+- Formation: Tourists following a Guide
+- Ghost Follow: Sphere (not visible) that is followed by the Police Man that patrols
+- Patrol: Police man patrolling and passing by 5 waypoints (and using GHost follow)
+- Perception: Doctors wandering until they find the patient in the rocks
+- Robbery: Robber trying to rob golden orb while police man is not near, police man wandering
+- Wander: Villager wandering
